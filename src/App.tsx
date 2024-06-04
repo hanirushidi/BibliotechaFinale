@@ -1,12 +1,16 @@
 import "./App.css";
 import HeroSection from "./components/HeroSection";
-import BestBooks from "./components/BestBooks";
+import VerticalReview from "./components/VerticalReview";
+import BestSelling from "./components/ui/BestSelling";
+// import WhyBibliotecha from "./components/WhyBibliotecha";
 
 function App() {
   return (
     <>
       <HeroSection />
-      <BestBooks />
+      <VerticalReview />
+      <BestSelling />
+      {/* <WhyBibliotecha /> */}
     </>
   );
 }
