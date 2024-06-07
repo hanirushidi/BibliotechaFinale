@@ -105,7 +105,7 @@ const ReviewCard = ({
 const MarqueeDemo = () => {
   return (
     <>
-      <div className="mt-20 font-Aptos item-center justify-center flex-row">
+      <div className="mt-20 font-Aptos gap-16 item-center justify-center flex-row">
         <div className="flex flex-col justify-center items-center ">
           <h1 className=" text-black text-5xl font-semibold leading-snug">
             Our Users Say It Best!
@@ -117,7 +117,7 @@ const MarqueeDemo = () => {
             today!
           </p>
         </div>
-        <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background py-20">
+        <div className="pb-28 relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background py-20">
           <Marquee pauseOnHover className="[--duration:20s]">
             {firstRow.map((review) => (
               <ReviewCard key={review.username} {...review} />

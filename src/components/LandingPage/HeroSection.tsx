@@ -1,6 +1,7 @@
-import Vector from "../assets/navbar/Vector.svg";
-import VectorBlack from "../assets/navbar/VectoBlack.svg";
-import herosection from "../assets/herosection.svg";
+import Vector from "../../assets/navbar/Vector.svg";
+import VectorBlack from "../../assets/navbar/VectoBlack.svg";
+import herosection from "../../assets/herosection.svg";
+import TextReveal from "@/components/magicui/TextReveal";
 const HeroSection = () => {
   return (
     <div className="h-full w-full flex flex-col bg-stone-200 rounded-b-3xl gap-12 mt-[-50px] py-32 font-Aptos items-center text-center">
@@ -8,8 +9,10 @@ const HeroSection = () => {
         <div className="flex flex-col gap-6 basis-1/2 justify-end h-full ">
           <div className="flex flex-col max-w-2xl gap-6">
             <h1 className="text-black text-5xl font-semibold leading-snug">
-              One Destination for Books <br />
-              and Audiobooks.
+              <TextReveal
+                text="One Destination for Books
+and Audiobooks."
+              />
             </h1>
             <p className="text-black text-base font-light">
               Open an account in minutes and start reading or listening to a
@@ -17,7 +20,7 @@ const HeroSection = () => {
               and insights every day with{" "}
               <span className="font-semibold">BIBLIOTECHA</span>
             </p>
-            <div className="flex flex-row gap-3 items-center justify-center ">
+            <div className="flex flex-row gap-3 items-center justify-center select-none  ">
               <div className="flex flex-row items-center">
                 <button className="flex items-center flex-row gap-3 h-f py-2 px-4 bg-[#00633F] text-white group rounded-3xl font-extralight">
                   Create an account{" "}

@@ -1,16 +1,19 @@
-import "./App.css";
-import HeroSection from "./components/HeroSection";
-import VerticalReview from "./components/VerticalReview";
-import BestSelling from "./components/ui/BestSelling";
-// import WhyBibliotecha from "./components/WhyBibliotecha";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <>
-      <HeroSection />
-      <VerticalReview />
-      <BestSelling />
-      {/* <WhyBibliotecha /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route path="/" element={<HomePage />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

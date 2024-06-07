@@ -1,12 +1,12 @@
 import logo from "../assets/navbar/Logo.svg";
 import Vector from "../assets/navbar/Vector.svg";
 import burger from "../assets/navbar/burgersvg.svg";
+import { Link, Outlet } from "react-router-dom";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -23,9 +23,9 @@ const Navbar = () => {
               </div>
               <div className=" flex-row justify-end items-center  gap-5 text-sm hidden md:flex">
                 <div className="flex flex-row gap-8 text-white font-Aptos ">
-                  <a href="/">Home</a>
-                  <a href="">Contact</a>
-                  <a href="">About Us</a>
+                  <Link to="/">Home</Link>
+                  <Link to="/Contact">Contact</Link>
+                  <Link to="/About">About Us</Link>
                 </div>
                 <div className="flex flex-row gap-5 items-center group">
                   <button className="flex flex-row gap-3 h-f py-2 px-3 bg-[#00633F] text-white rounded-3xl font-extralight">
@@ -81,6 +81,7 @@ const Navbar = () => {
           </SheetContent>
         </Sheet>
       </div>
+      <Outlet />
     </>
   );
 };
