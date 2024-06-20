@@ -15,7 +15,7 @@ const Navbar = () => {
     <>
       <div className="sticky top-5 flex justify-center w-full z-50">
         <Sheet>
-          <div className="self-center select-none font-Aptos max-w-[1114px] w-full flex flex-1 rounded-[34px] backdrop-blur-md bg-opacity-85 bg-neutral-700 py-1">
+          <div className="self-center select-none font-Aptos max-w-[1114px] w-full flex flex-1 rounded-[34px] backdrop-blur-md bg-opacity-85 bg-[#404040] py-1">
             <div className="flex flex-row justify-between items-center w-full py-1 px-8 ">
               <div className="flex justify-center items-center gap-1 w-max">
                 <img src={logo} width={40} alt="" />
@@ -29,7 +29,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-row gap-5 items-center group">
                   <button className="flex flex-row gap-3 h-f py-2 px-3 bg-[#00633F] text-white rounded-3xl font-extralight">
-                    Sign In{" "}
+                    Start reading!{" "}
                     <img
                       src={Vector}
                       width={15}

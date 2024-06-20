@@ -2,6 +2,7 @@ import Vector from "../../assets/navbar/Vector.svg";
 import VectorBlack from "../../assets/navbar/VectoBlack.svg";
 import herosection from "../../assets/herosection.svg";
 import TextReveal from "@/components/magicui/TextReveal";
+import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <div className="h-full w-full flex flex-col bg-stone-200 rounded-b-3xl gap-12 mt-[-50px] py-32 font-Aptos items-center text-center">
@@ -23,7 +24,7 @@ and Audiobooks."
             <div className="flex flex-row gap-3 items-center justify-center select-none  ">
               <div className="flex flex-row items-center">
                 <button className="flex items-center flex-row gap-3 h-f py-2 px-4 bg-[#00633F] text-white group rounded-3xl font-extralight">
-                  Create an account{" "}
+                  Start reading now!{" "}
                   <img
                     src={Vector}
                     width={15}
@@ -33,15 +34,17 @@ and Audiobooks."
                 </button>
               </div>
               <div>
-                <button className="flex items-center flex-row gap-3 h-f py-2 px-4 group bg-[#F5F5F4] text-black rounded-3xl font-extralight">
-                  Log In{" "}
-                  <img
-                    src={VectorBlack}
-                    width={15}
-                    alt=""
-                    className=" flex group-hover:rotate-180 transition-transform duration-500 ease-in-out justify-center items-center"
-                  />{" "}
-                </button>{" "}
+                <Link to="/auth">
+                  <button className="flex items-center flex-row gap-3 h-f py-2 px-4 group bg-[#F5F5F4] text-black rounded-3xl font-extralight">
+                    Log In
+                    <img
+                      src={VectorBlack}
+                      width={15}
+                      alt=""
+                      className=" flex group-hover:rotate-180 transition-transform duration-500 ease-in-out justify-center items-center"
+                    />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
