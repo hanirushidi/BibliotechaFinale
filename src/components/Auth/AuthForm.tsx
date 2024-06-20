@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const APY_KEY = "AIzaSyA_Q5e5Swf1cPFakEO0ByT9w4Rf2PTFTcI";
+const APY_KEY = import.meta.env.VITE_BIBLIOTECHA_FIREBASE_APY_KEY;
 const LOGIN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${APY_KEY}`;
 
 const AuthForm = () => {
