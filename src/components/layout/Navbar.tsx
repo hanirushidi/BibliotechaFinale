@@ -1,6 +1,6 @@
-import logo from "../assets/navbar/Logo.svg";
-import Vector from "../assets/navbar/Vector.svg";
-import burger from "../assets/navbar/burgersvg.svg";
+import logo from "@/assets/navbar/Logo.svg";
+import Vector from "@/assets/navbar/Vector.svg";
+import burger from "@/assets/navbar/burgersvg.svg";
 import { Link, Outlet } from "react-router-dom";
 import {
   Sheet,
