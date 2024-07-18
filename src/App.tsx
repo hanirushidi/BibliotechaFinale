@@ -6,6 +6,10 @@ import { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Auth from "./pages/Auth";
+import AdminBooks from "./pages/admin/AdminBooks";
+import AdminAudiobooks from "./pages/admin/AdminAudiobooks";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminAnalytics from "./pages/admin/AdminAnalytics";
 
 function App() {
   const isAuthenticated = useSelector(
@@ -23,13 +27,34 @@ function App() {
           </Route>
           <Route
             path="/auth"
-            element={isAuthenticated ? <Navigate to="/admin" /> : <Auth />}
+            element={
+              isAuthenticated ? <Navigate to="/admin/dashboard" /> : <Auth />
+            }
           />
-
           <Route
-            path="/admin"
+            path="/admin/dashboard"
             element={
               isAuthenticated ? <AdminDashboard /> : <Navigate to="/auth" />
+            }
+          />
+          <Route
+            path="/admin/books"
+            element={isAuthenticated ? <AdminBooks /> : <Navigate to="/auth" />}
+          />
+          <Route
+            path="/admin/audiobooks"
+            element={
+              isAuthenticated ? <AdminAudiobooks /> : <Navigate to="/auth" />
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={isAuthenticated ? <AdminUsers /> : <Navigate to="/auth" />}
+          />
+          <Route
+            path="/admin/analytics"
+            element={
+              isAuthenticated ? <AdminAnalytics /> : <Navigate to="/auth" />
             }
           />
         </Routes>

@@ -1,17 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Home,
   LineChart,
   Menu,
   Package,
-  Package2,
-  Search,
+  Book,
   ShoppingCart,
   Users,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Topbar = () => {
   return (
@@ -30,48 +28,68 @@ const Topbar = () => {
           </SheetTrigger>
           <SheetContent side="left" className="flex flex-col">
             <nav className="grid gap-2 text-lg font-medium">
-              <Link
-                to="#"
+              <NavLink
+                to="/"
                 className="flex items-center gap-2 text-lg font-semibold"
               >
-                <Package2 className="h-6 w-6" />
+                <Book className="h-6 w-6" />
                 <span className="sr-only">Acme Inc</span>
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              </NavLink>
+              <NavLink
+                to="/admin/dashboard"
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive
+                    ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl  bg-[#00633F] px-3 py-2 text-white hover:text-white hover:bg-[#174d38]"
+                    : "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                }
               >
                 <Home className="h-5 w-5" />
                 Dashboard
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+              </NavLink>
+              <NavLink
+                to="/admin/books"
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive
+                    ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl  bg-[#00633F] px-3 py-2 text-white hover:text-white hover:bg-[#174d38]"
+                    : "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                }
               >
                 <ShoppingCart className="h-5 w-5" />
-                Orders
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                Books
+              </NavLink>
+              <NavLink
+                to="/admin/audiobooks"
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive
+                    ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl  bg-[#00633F] px-3 py-2 text-white hover:text-white hover:bg-[#174d38]"
+                    : "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                }
               >
                 <Package className="h-5 w-5" />
-                Products
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                Audiobooks
+              </NavLink>
+              <NavLink
+                to="/admin/users"
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive
+                    ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl  bg-[#00633F] px-3 py-2 text-white hover:text-white hover:bg-[#174d38]"
+                    : "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                }
               >
                 <Users className="h-5 w-5" />
-                Customers
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                Users
+              </NavLink>
+              <NavLink
+                to="/admin/analytics"
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive
+                    ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl  bg-[#00633F] px-3 py-2 text-white hover:text-white hover:bg-[#174d38]"
+                    : "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                }
               >
                 <LineChart className="h-5 w-5" />
                 Analytics
-              </Link>
+              </NavLink>
             </nav>
           </SheetContent>
         </Sheet>

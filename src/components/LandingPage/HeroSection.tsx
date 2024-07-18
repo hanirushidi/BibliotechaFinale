@@ -10,10 +10,7 @@ const HeroSection = () => {
         <div className="flex flex-col gap-6 basis-1/2 justify-end h-full ">
           <div className="flex flex-col max-w-2xl gap-6">
             <h1 className="text-black text-5xl font-semibold leading-snug">
-              <TextReveal
-                text="One Destination for Books
-and Audiobooks."
-              />
+              <TextReveal text="One Destination for Books and Audiobooks." />
             </h1>
             <p className="text-black text-base font-light">
               Open an account in minutes and start reading or listening to a
@@ -24,7 +21,7 @@ and Audiobooks."
             <div className="flex flex-row gap-3 items-center justify-center select-none  ">
               <div className="flex flex-row items-center">
                 <button className="flex items-center flex-row gap-3 h-f py-2 px-4 bg-[#00633F] text-white group rounded-3xl font-extralight">
-                  Start reading now!{" "}
+                  Start reading!{" "}
                   <img
                     src={Vector}
                     width={15}
