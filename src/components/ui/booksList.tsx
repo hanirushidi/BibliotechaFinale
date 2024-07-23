@@ -3,14 +3,7 @@
  * @see https://v0.dev/t/4ch7SL98ZOJ
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
   Table,
   TableHeader,
@@ -27,9 +20,24 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { SVGProps } from "react";
+import { SVGProps, useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { fetchBooks } from "@/store/booksSlice";
 
 export default function Component() {
+  const dispatch: AppDispatch = useDispatch();
+  const books = useSelector((state: RootState) => state.books.books);
+  const booksCount = useSelector((state: RootState) => state.books.count);
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  {
+    console.log(books);
+  }
   return (
     <Card className="font-Aptos w-full bg-muted/40">
       <CardContent>
@@ -53,54 +61,61 @@ export default function Component() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableCell className="hidden sm:table-cell">
-                <img
-                  alt="Book cover"
-                  className="aspect-square rounded-md object-cover"
-                  height="64"
-                  src="/placeholder.svg"
-                  width="64"
-                />
-              </TableCell>
-              <TableCell className="font-medium">Bardha e Temalit</TableCell>
-              <TableCell>Pashko Vasa</TableCell>
-              <TableCell className="hidden md:table-cell">
-                Mesonjetorja
-              </TableCell>
-              <TableCell className="hidden md:table-cell">Drama</TableCell>
-              <TableCell className="hidden md:table-cell">1999</TableCell>
-              <TableCell className="hidden md:table-cell">Albanian</TableCell>
-              <TableCell className="hidden md:table-cell">212</TableCell>
-
-              <TableCell>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      aria-haspopup="true"
-                      size="icon"
-                      className="bg-[#00633F] hover:bg-[#00633fcb] focus:bg-[#00633F]"
-                    >
-                      <MoveHorizontalIcon className="h-4 w-4" />
-                      <span className="sr-only">Toggle menu</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                    <DropdownMenuItem>Edit</DropdownMenuItem>
-                    <DropdownMenuItem>Delete</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </TableCell>
-            </TableRow>
-
-            <TableRow></TableRow>
+            {books.map((book) => (
+              <TableRow key={book.id}>
+                <TableCell className="hidden sm:table-cell">
+                  <img
+                    alt="Book cover"
+                    className="aspect-square rounded-md object-cover"
+                    height="64"
+                    src={book.bookCover}
+                    width="64"
+                  />
+                </TableCell>
+                <TableCell className="font-medium">{book.title}</TableCell>
+                <TableCell>{book.author}</TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {book.publishingHouse}
+                </TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {book.genre}
+                </TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {book.publishedDate}
+                </TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {book.language}
+                </TableCell>
+                <TableCell className="hidden md:table-cell">
+                  {book.pageCount}
+                </TableCell>
+                <TableCell>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        aria-haspopup="true"
+                        size="icon"
+                        className="bg-[#00633F] hover:bg-[#00633fcb] focus:bg-[#00633F]"
+                      >
+                        <MoveHorizontalIcon className="h-4 w-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                      <DropdownMenuItem>Edit</DropdownMenuItem>
+                      <DropdownMenuItem>Delete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </CardContent>
       <CardFooter>
         <div className="text-xs text-muted-foreground">
-          Showing <strong>1-10</strong> of <strong>32</strong> books
+          Showing <strong>1-10</strong> of <strong>{booksCount}</strong> books
         </div>
       </CardFooter>
     </Card>

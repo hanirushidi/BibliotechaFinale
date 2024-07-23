@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA_Q5e5Swf1cPFakEO0ByT9w4Rf2PTFTcI",
@@ -13,11 +13,5 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const db = getFirestore();
-
-const collRef = getDocs(collection(db, "books")).then((snapshot) => {
-  snapshot.docs.map((doc) => {
-    console.log(doc.data());
-  });
-});
 
 export { db };

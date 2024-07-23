@@ -13,6 +13,12 @@ export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
       id: doc.id,
       title: data.title ?? "Unknown Title", // Default value if field is missing
       author: data.author ?? "Unknown Author", // Default value if field is missing
+      publishingHouse: data.publishingHouse ?? "Unknown Publishing House", // Default value if field is missing
+      genre: data.genre ?? "Unknown Genre", // Default value if field is missing
+      publishedDate: data.publishedDate ?? 0, // Default value if field is missing
+      language: data.language ?? "Unknown Language", // Default value if field is missing
+      pageCount: data.pageCount ?? 0, // Default value if field is missing
+      bookCover: data.bookCover ?? "Unknown Cover", // Default value if field is missing
       // Add other fields as necessary with default values
     } as Book;
   });

@@ -1,6 +1,6 @@
 import AdminLayout from "@/components/layout/admin/AdminLayout";
 import Component from "@/components/ui/booksList";
-import AddBookModal from "@/components/AddBookModal";
+import AddBookModal from "@/components/admin/AddBookModal";
 
 const AdminBooks = () => {
   return (
