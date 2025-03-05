@@ -4,6 +4,8 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { doc, deleteDoc } from "firebase/firestore/lite";
+
 import {
   Table,
   TableHeader,
@@ -25,6 +27,8 @@ import { SVGProps, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { fetchBooks } from "@/store/booksSlice";
+import { db } from "@/firebaseConfig";
+import toast from "react-hot-toast";
 
 export default function Component() {
   const dispatch: AppDispatch = useDispatch();
@@ -38,6 +42,17 @@ export default function Component() {
   {
     console.log(books);
   }
+
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, "books", id));
+      dispatch(fetchBooks());
+      toast.success("Book deleted successfully");
+    } catch (error: any) {
+      console.error("Error deleting document: ", error);
+      toast.error("Error deleting book: " + error.message);
+    }
+  };
   return (
     <Card className="font-Aptos w-full bg-muted/40">
       <CardContent>
@@ -104,7 +119,11 @@ export default function Component() {
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
                       <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <button onClick={() => handleDelete(book.id)}>
+                          Delete
+                        </button>
+                      </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
@@ -141,26 +160,6 @@ function MoveHorizontalIcon(
       <polyline points="18 8 22 12 18 16" />
       <polyline points="6 8 2 12 6 16" />
       <line x1="2" x2="22" y1="12" y2="12" />
-    </svg>
-  );
-}
-
-function XIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
     </svg>
   );
 }

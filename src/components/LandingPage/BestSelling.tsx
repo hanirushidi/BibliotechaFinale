@@ -39,6 +39,20 @@ const BestSelling = () => {
       image: theOutsider,
     },
     {
+      Id: 3,
+      title: "The Outsider",
+      author: "Stephen King",
+      narrator: "Will Patton",
+      image: theOutsider,
+    },
+    {
+      Id: 3,
+      title: "The Outsider",
+      author: "Stephen King",
+      narrator: "Will Patton",
+      image: theOutsider,
+    },
+    {
       Id: 4,
       title: "Fourth Wing",
       author: "Rebecca Yarros",
@@ -55,10 +69,10 @@ const BestSelling = () => {
   ];
   return (
     <>
-      <div className="flex w-full items-center justify-center">
-        <div className="flex flex-col py-16 items-center gap-10 justify-center max-w-screen-xl font-Aptos">
-          <div className="flex w-full flex-row justify-between ">
-            <h1 className="font-semibold md:text-4xl text-2xl">
+      <div className="flex items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center max-w-screen-xl gap-10 py-16 font-Aptos">
+          <div className="flex flex-row justify-between w-full ">
+            <h1 className="text-2xl font-semibold md:text-4xl">
               Our Best Selling AudioBooks
             </h1>
           </div>
@@ -76,21 +90,21 @@ const BestSelling = () => {
                     key={book.Id}
                     className="basis-1/2 md:basis-1/4 lg:basis-1/5"
                   >
-                    <div className="p-2 rounded-md flex-col flex items-center gap-2">
+                    <div className="flex flex-col items-center gap-2 p-2 rounded-md">
                       <Card className="rounded-md max-w-[120px] max-h-[120px]  md:max-w-[190px] md:max-h-[190px]">
                         <img
                           src={book.image}
                           alt=""
-                          className="  object-cover rounded-md"
+                          className="object-cover rounded-md "
                         />
                       </Card>
-                      <p className="font-Aptos md:text-xl font-semibold text-center text-xs  ">
+                      <p className="text-xs font-semibold text-center font-Aptos md:text-xl ">
                         {book.title}
                       </p>
-                      <p className="font-Aptos md:text-sm text-xs font-light text-center">
+                      <p className="text-xs font-light text-center font-Aptos md:text-sm">
                         by: {book.author}
                       </p>
-                      <p className="font-Aptos md:text-sm text-xs font-light text-center">
+                      <p className="text-xs font-light text-center font-Aptos md:text-sm">
                         Narrated: {book.narrator}
                       </p>
                     </div>
@@ -104,7 +118,7 @@ const BestSelling = () => {
           {/* <div className="flex flex-row justify-center">
           <div className="flex flex-row gap-5 w-[1000px] ">
             <Carousel className="w-full ">
-              <CarouselContent className=" flex flex-row  w-fit max-w-2xl">
+              <CarouselContent className="flex flex-row max-w-2xl w-fit">
                 {audioBooks.map((book) => (
                   <CarouselItem
                     key={book.Id}
@@ -113,7 +127,7 @@ const BestSelling = () => {
                     <div className="flex w-48">
                       <Card className="flex w-48 ">
                         <img
-                          className=" rounded-lg object-full h-full"
+                          className="h-full rounded-lg object-full"
                           src={book.image}
                           alt=""
                         />
